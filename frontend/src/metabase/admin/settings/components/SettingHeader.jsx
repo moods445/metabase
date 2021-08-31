@@ -12,7 +12,7 @@ const SettingHeader = ({ setting }) => (
           <strong>{setting.warningMessage}</strong>{" "}
         </React.Fragment>
       )}
-      {setting.description}
+      <span dangerouslySetInnerHTML={{ __html: setting.description }} />
       {setting.note && <div>{setting.note}</div>}
     </div>
   </div>

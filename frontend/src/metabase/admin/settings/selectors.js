@@ -409,6 +409,14 @@ if (MetabaseSettings.isHosted()) {
   };
 }
 
+if (MetabaseSettings.isEnterprise()) {
+  SECTIONS.email.settings.push({
+    key: "email-approved-domains",
+    display_name: t`Approved domains for notifications`,
+    type: "string",
+  });
+}
+
 export const getSettings = createSelector(
   state => state.admin.settings.settings,
   state => state.admin.settings.warnings,
