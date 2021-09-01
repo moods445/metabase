@@ -529,7 +529,6 @@ jobs:
 ########################################################################################################################
 
   checkout:
-    resource_class: small
     executor: clojure-and-node-and-browsers
     steps:
       - checkout
@@ -799,7 +798,7 @@ jobs:
             - restore-fe-deps-cache
             - run:
                 name: Run yarn to install deps
-                command: yarn;
+                command: rm -rf node_modules && yarn --frozen-lockfile;
                 no_output_timeout: 15m
             - save_cache:
                 name: Cache frontend dependencies
